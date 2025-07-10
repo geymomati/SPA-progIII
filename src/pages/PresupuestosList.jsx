@@ -34,21 +34,38 @@ function PresupuestosList() {
         Lista de presupuestos
       </h2>
 
-      <button
-        onClick={() => navigate('/presupuestos/nuevo')}
-        style={{
-          marginBottom: '20px',
-          padding: '10px 15px',
-          borderRadius: '8px',
-          backgroundColor: '#007bff',
-          color: 'white',
-          fontWeight: '600',
-          cursor: 'pointer',
-          border: 'none',
-        }}
-      >
-        Nuevo Presupuesto
-      </button>
+      {/* Botones de navegación */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+        <button
+          onClick={() => navigate('/perfil')}
+          style={{
+            padding: '10px 15px',
+            borderRadius: '8px',
+            backgroundColor: '#28a745',
+            color: 'white',
+            fontWeight: '600',
+            cursor: 'pointer',
+            border: 'none',
+          }}
+        >
+          Ir al Perfil
+        </button>
+
+        <button
+          onClick={() => navigate('/presupuestos/nuevo')}
+          style={{
+            padding: '10px 15px',
+            borderRadius: '8px',
+            backgroundColor: '#007bff',
+            color: 'white',
+            fontWeight: '600',
+            cursor: 'pointer',
+            border: 'none',
+          }}
+        >
+          Nuevo Presupuesto
+        </button>
+      </div>
 
       {presupuestos.length === 0 ? (
         <p style={{ textAlign: 'center', color: '#666' }}>No hay presupuestos cargados.</p>
