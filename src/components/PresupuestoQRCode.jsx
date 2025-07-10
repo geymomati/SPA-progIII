@@ -1,18 +1,13 @@
 import React from 'react'
-import QRCode from 'react-qr-code'
+import { QRCodeCanvas } from 'qrcode.react'
 
-function PresupuestoQRCode({ presupuestoId }) {
-  const urlDetalle = `${window.location.origin}/presupuestos/detalle/${presupuestoId}`
-
+function PresupuestoQRCode({ data }) {
   return (
-    <div style={{ textAlign: 'center', margin: '20px 0' }}>
-      <p style={{ marginBottom: '8px', fontWeight: '600' }}>
-        Escaneá el código QR para ver el detalle del presupuesto online:
+    <div style={{ textAlign: 'center', marginTop: '30px' }}>
+      <p style={{ fontWeight: '600', marginBottom: '10px' }}>
+        Escaneá este código QR desde otro dispositivo
       </p>
-      <QRCode value={urlDetalle} size={150} />
-      <p style={{ fontSize: '0.9rem', color: '#555', marginTop: '8px', wordBreak: 'break-word' }}>
-        {urlDetalle}
-      </p>
+      <QRCodeCanvas value={data} size={180} />
     </div>
   )
 }
