@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="src/assets/images/pagapoco-banner.jpg" alt="PAGAPOCO Banner" width="600"/>
+</p>
+
 # Gestor de Presupuestos - Fullstack (API + SPA)
 
 ## Descripción General
@@ -113,4 +117,4 @@ Licencia MIT.
 ---
 
 ## Contacto
-Para dudas o mejoras, contacta a [geymomati@gmail.com].
+Para dudas o mejoras, contacta a [geymomati@gmail.com o gomezdiegoelias1@gmail.com].
