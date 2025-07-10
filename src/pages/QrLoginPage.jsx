@@ -25,9 +25,27 @@ function QrLoginPage() {
   }, [params, navigate])
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h2>Iniciando sesión...</h2>
-      <p>Espere un momento</p>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%)',
+      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+    }}>
+      <div style={{
+        background: '#fff',
+        borderRadius: '14px',
+        boxShadow: '0 4px 18px rgba(0,0,0,0.10)',
+        padding: '36px 28px',
+        minWidth: '320px',
+        maxWidth: '400px',
+        width: '100%',
+        textAlign: 'center',
+      }}>
+        <h2>Iniciando sesión...</h2>
+        <p>Espere un momento</p>
+      </div>
     </div>
   )
 }

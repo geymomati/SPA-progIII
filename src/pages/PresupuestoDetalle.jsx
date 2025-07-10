@@ -37,42 +37,49 @@ function PresupuestoDetalle() {
   console.log('ID presupuesto:', presupuesto.id) // debug
 
   return (
-    <div
-      style={{
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%)',
+      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+    }}>
+      <div style={{
+        background: '#fff',
+        borderRadius: '14px',
+        boxShadow: '0 4px 18px rgba(0,0,0,0.10)',
+        padding: '36px 28px',
+        minWidth: '320px',
         maxWidth: '500px',
-        margin: '40px auto',
-        padding: '20px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        borderRadius: '8px',
-        backgroundColor: '#fff',
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-      }}
-    >
-      <h2 style={{ marginBottom: '20px' }}>Detalle del presupuesto</h2>
-      <p><strong>Cliente:</strong> {presupuesto.cliente}</p>
-      <p><strong>Vehículo:</strong> {presupuesto.vehiculo}</p>
-      <p><strong>Trabajo:</strong> {presupuesto.trabajo}</p>
-      <p><strong>Precio estimado:</strong> ${presupuesto.precio}</p>
+        width: '100%',
+      }}>
+        <h2 style={{ marginBottom: '20px' }}>Detalle del presupuesto</h2>
+        <p><strong>Cliente:</strong> {presupuesto.cliente}</p>
+        <p><strong>Vehículo:</strong> {presupuesto.vehiculo}</p>
+        <p><strong>Trabajo:</strong> {presupuesto.trabajo}</p>
+        <p><strong>Precio estimado:</strong> ${presupuesto.precio}</p>
 
-      {/* QR */}
-      <PresupuestoQRCode presupuestoId={presupuesto.id} />
+        {/* QR */}
+        <PresupuestoQRCode presupuestoId={presupuesto.id} />
 
-      <button
-        onClick={() => navigate('/presupuestos')}
-        style={{
-          marginTop: '30px',
-          padding: '10px',
-          backgroundColor: '#007bff',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '6px',
-          fontWeight: '600',
-          width: '100%',
-          cursor: 'pointer',
-        }}
-      >
-        Volver al listado
-      </button>
+        <button
+          onClick={() => navigate('/presupuestos')}
+          style={{
+            marginTop: '30px',
+            padding: '10px',
+            backgroundColor: '#007bff',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '6px',
+            fontWeight: '600',
+            width: '100%',
+            cursor: 'pointer',
+          }}
+        >
+          Volver al listado
+        </button>
+      </div>
     </div>
   )
 }
