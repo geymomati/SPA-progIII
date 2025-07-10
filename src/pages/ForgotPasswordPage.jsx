@@ -7,6 +7,7 @@ import AlertMessage from '../components/AlertMessage'
 import Modal from '../components/Modal'
 import ButtonModern from '../components/ButtonModern'
 import { IconCheck, IconArrowLeft } from '../components/Icons'
+import { requestPasswordReset } from '../api/password'
 
 function ForgotPasswordPage() {
   const [email, setEmail] = useState('')
@@ -16,7 +17,7 @@ function ForgotPasswordPage() {
   const [modalMessage, setModalMessage] = useState('')
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
     setMensaje('')
@@ -26,9 +27,14 @@ function ForgotPasswordPage() {
       setShowModal(true)
       return
     }
-    setModalMessage(`Se envió un correo a ${email} con instrucciones para recuperar tu contraseña.`)
-    setShowModal(true)
-    setEmail('')
+    try {
+      await requestPasswordReset(email)
+      setModalMessage(`Se envió un correo a ${email} con instrucciones para recuperar tu contraseña.`)
+      setShowModal(true)
+      setEmail('')
+    } catch (err) {
+      setError('No se pudo enviar el correo de recuperación')
+    }
   }
 
   return (
@@ -104,14 +110,6 @@ function ForgotPasswordPage() {
 
             <ButtonModern type="submit" variant="primary" icon={<IconCheck size={18} />}>
               Enviar instrucciones
-            </ButtonModern>
-            <ButtonModern
-              type="button"
-              variant="secondary"
-              style={{ marginTop: '12px' }}
-              onClick={() => navigate('/')}
-            >
-              Volver al login
             </ButtonModern>
             <Modal
               show={showModal}
